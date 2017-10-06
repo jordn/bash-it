@@ -2,79 +2,67 @@ cite 'about-alias'
 about-alias 'common git abbreviations'
 
 # Aliases
-alias gcl='git clone'
-alias ga='git add'
-alias grm='git rm'
-alias gap='git add -p'
-alias gall='git add -A'
-alias gf='git fetch --all --prune'
-alias gft='git fetch --all --prune --tags'
-alias gfv='git fetch --all --prune --verbose'
-alias gftv='git fetch --all --prune --tags --verbose'
-alias gus='git reset HEAD'
-alias gpristine='git reset --hard && git clean -dfx'
-alias gclean='git clean -fd'
-alias gm="git merge"
-alias gmv='git mv'
+
+# Aliases
+# (sorted alphabetically)
+#
+
 alias g='git'
-alias get='git'
-alias gst='git status'
-alias gs='git status'
-alias gss='git status -s'
-alias gsu='git submodule update --init --recursive'
-alias gl='git pull'
-alias glum='git pull upstream master'
-alias gpr='git pull --rebase'
-alias gpp='git pull && git push'
-alias gup='git fetch && git rebase'
-alias gp='git push'
-alias gpo='git push origin'
-alias gpu='git push --set-upstream'
-alias gpom='git push origin master'
-alias gr='git remote'
-alias grv='git remote -v'
-alias gra='git remote add'
-alias gd='git diff'
-alias gdv='git diff -w "$@" | vim -R -'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gcm='git commit -v -m'
-alias gci='git commit --interactive'
+
+alias ga='git add'
+alias gaa='git add --all'
+alias gapa='git add --patch'
+alias gau='git add --update'
+
 alias gb='git branch'
 alias gba='git branch -a'
-alias gbt='git branch --track'
-alias gbm='git branch -m'
 alias gbd='git branch -d'
-alias gbD='git branch -D'
+alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+alias gbl='git blame -b -w'
+alias gbnm='git branch --no-merged'
+alias gbr='git branch --remote'
+alias gbs='git bisect'
+alias gbsb='git bisect bad'
+alias gbsg='git bisect good'
+alias gbsr='git bisect reset'
+alias gbss='git bisect start'
+
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gcn!='git commit -v --no-edit --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gcan!='git commit -v -a --no-edit --amend'
+alias gcans!='git commit -v -a -s --no-edit --amend'
+alias gcam='git commit -a -m'
+alias gcsm='git commit -s -m'
+alias gcb='git checkout -b'
+alias gcf='git config --list'
+alias gcl='git clone --recursive'
+alias gclean='git clean -fd'
+alias gpristine='git reset --hard && git clean -dfx'
+alias gcm='git checkout master'
+alias gcd='git checkout develop'
+alias gcmsg='git commit -m'
+alias gco='git checkout'
 alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
-alias gco='git checkout'
-alias gcom='git checkout master'
-alias gcb='git checkout -b'
-alias gcob='git checkout -b'
-alias gct='git checkout --track'
-alias gexport='git archive --format zip --output'
-alias gdel='git branch -D'
-alias gmu='git fetch origin -v; git fetch upstream -v; git merge upstream/master'
-alias gll='git log --graph --pretty=oneline --abbrev-commit'
-alias gg="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
-alias ggs="gg --stat"
-alias gsl="git shortlog -sn"
-alias gwc="git whatchanged"
-alias gt="git tag"
-alias gta="git tag -a"
-alias gtd="git tag -d"
-alias gtl="git tag -l"
-# From http://blogs.atlassian.com/2014/10/advanced-git-aliases/
-# Show commits since last pull
-alias gnew="git log HEAD@{1}..HEAD@{0}"
-# Add uncommitted and unstaged changes to the last commit
-alias gcaa="git commit -a --amend -C HEAD"
-alias ggui="git gui"
-alias gcam="git commit -am"
-alias gcsam="git commit -S -am"
-alias gstd="git stash drop"
-alias gstl="git stash list"
+alias gcpa='git cherry-pick --abort'
+alias gcpc='git cherry-pick --continue'
+alias gcs='git commit -S'
+
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias gdct='git describe --tags `git rev-list --tags --max-count=1`'
+alias gdt='git diff-tree --no-commit-id --name-only -r'
+alias gdw='git diff --word-diff'
+
+alias gf='git fetch'
+alias gfa='git fetch --all --prune'
+alias gfo='git fetch origin'
+
+alias gg='git gui citool'
+alias gga='git gui citool --amend'
 
 case $OSTYPE in
   darwin*)
